@@ -36,6 +36,13 @@
       "w": {{config.imageWidth}},
       "h": {{config.imageHeight}}
     },
+    {{#config.isMultiPack}}
+    "relatedMultiPacks":[
+      {{#config.relatedMultiPacks}}
+        "{{name}}"{{^last}},{{/last}}
+      {{/config.relatedMultiPacks}}
+    ],
+    {{/config.isMultiPack}}
     "scale": {{config.scale}}
   }
 }

@@ -21,6 +21,17 @@ class FilesProcessor {
                         });
 
                         if(packResult.length >= res.length) {
+                            // detect a multipack
+                            if (packResult.length > 1) {
+                                // make an array with all the files generated
+                                options.relatedMultiPacks = 
+                                    packResult.map((_item, index) => 
+                                        ({name:options.textureName + (!options.omitZeroIndex || index > 0 ? "-" + index : "") + "." + options.exporter.fileExt}));
+                            }
+                            else {
+                                options.relatedMultiPacks = [];
+                            }
+
                             let ix = 0;
                             for(let item of packResult) {
                                 let fName = options.textureName + (packResult.length > 1 ? "-" + ix : "");
@@ -64,7 +75,8 @@ class FilesProcessor {
                     base64Export: options.base64Export,
                     scale: options.scale,
                     appInfo: options.appInfo,
-                    trimMode: options.trimMode
+                    trimMode: options.trimMode,
+                    relatedMultiPacks: options.relatedMultiPacks.filter(fileObj => fileObj.name.indexOf(fName + "." + options.exporter.fileExt) === -1) //a file doesn't contain itself in the multipack array
                 };
                 
                 files.push({
