@@ -67,8 +67,8 @@ class PackProcessor {
 
         let rects = [];
 
-        let padding = options.padding || 0;
-        let extrude = options.extrude || 0;
+        let padding = options.padding / options.scale || 0;
+        let extrude = options.extrude / options.scale || 0;
 
         let maxWidth = 0, maxHeight = 0;
         let minWidth = 0, minHeight = 0;
