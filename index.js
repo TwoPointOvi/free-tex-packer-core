@@ -40,7 +40,7 @@ function packAsync(images, options) {
     options.extrude = options.extrude === undefined ? 0 : options.extrude;
     options.allowRotation = options.allowRotation === undefined ? true : options.allowRotation;
     options.detectIdentical = options.detectIdentical === undefined ? true : options.detectIdentical;
-    options.allowTrim = options.allowTrim === undefined ? true : options.allowTrim;
+    options.allowTrim = false; // WIP: TRIM DOESN'T WORK WITH NEW UPDATED VERSION SPRITES MIGHT CLIP
     options.trimMode = options.trimMode === undefined ? "trim" : options.trimMode;
     options.alphaThreshold = options.alphaThreshold === undefined ? 0 : options.alphaThreshold;
     options.removeFileExtension = options.removeFileExtension === undefined ? false : options.removeFileExtension;
