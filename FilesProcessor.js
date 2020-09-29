@@ -34,7 +34,7 @@ class FilesProcessor {
 
                             let ix = 0;
                             for(let item of packResult) {
-                                let fName = options.textureName + (packResult.length > 1 ? "-" + ix : "");
+                                let fName = options.textureName + (packResult.length > 1  && (!options.omitZeroIndex || ix > 0) ? "-" + ix : "");
 
                                 FilesProcessor.processPackResultItem(fName, item, options, (files) => {
                                     resFiles = resFiles.concat(files);
